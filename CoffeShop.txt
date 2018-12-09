@@ -1,0 +1,41 @@
+Coffe Shop
+
+- mysql - users - id, name, password, user_role
+        - products - id, code, image, name, price, description, creation_date
+        - orders - id, amount, id_user, creation_date,
+        - order_details - id_order, id_produs, qty, price, product_amount
+
+USER STORIES:
+
+1.  as Admin I want to add/delete a user to users table so that I will have an overview of my employees
+    - TASK 1: design DataBase accordingly with business object
+    - TASK 2: create domain classes (user)
+    - TASK 3: create Controller class
+    - TASK 4: create Service class
+    - TASK 5: create Repository class
+    - TASK 6: create an user interface in order to be able to add/delete a user
+
+2.  as Admin I want to be able to add/delete a product to the products catalog so that the waiter can take orders with the products
+    - TASK 1: design DataBase accordingly with business objects
+    - TASK 2: create domain classes (product)
+    - TASK 3: change Controller class in order to add product functionality
+    - TASK 4: change Service class in order to add product functionality
+    - TASK 5: change Repository class in order to add product functionality
+    - TASK 6: create an user interface in order to be able to add/delete a product
+
+3. as Admin I want to see to see the best selling products during a custom period of time
+4. as Admin I want to see the sales during a custom period of time
+
+6. as User I want to be able to create an order using available products so that I can take an order from my customer
+    - TASK 1: design DataBase accordingly with business object
+    - TASK 2: create domain classes (order, order details)
+    - TASK 3: change Controller class in order to add product functionality
+    - TASK 4: change Service class in order to add product functionality
+    - TASK 5: change Repository class in order to add product functionality
+    - TASK 6: create an user interface so that an employee is able to insert a new order
+
+5. as User I want to view all products within the database
+
+7. as User I want to be able to export an order to a pdf file
+8. as User I want to be able to see a total amount of my orders today
+
