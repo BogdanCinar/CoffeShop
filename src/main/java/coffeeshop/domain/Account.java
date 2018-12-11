@@ -1,4 +1,4 @@
-package domain;
+package coffeeshop.domain;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -8,15 +8,17 @@ import javax.validation.constraints.NotNull;
  */
 
 @Entity
-@Table(name = "accounts")
+@Table(name = "Accounts")
 public class Account {
 
+    public static final String ROLE_MANAGER = "MANAGER";
+    public static final String ROLE_EMPLOYEE = "EMPLOYEE";
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotNull
-    @Column(unique = true)
     private String userName;
 
     @NotNull
@@ -28,15 +30,23 @@ public class Account {
     @NotNull
     private String role;
 
-    public Account(String userName, String email) {
+    public Account(@NotNull String userName, String email, @NotNull String role) {
         this.userName = userName;
         this.email = email;
+        this.role = role;
     }
+
+    public Account() {
+    }
+
 
     public Long getId() {
         return id;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getUserName() {
         return userName;

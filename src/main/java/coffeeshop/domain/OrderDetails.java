@@ -1,4 +1,4 @@
-package domain;
+package coffeeshop.domain;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -10,13 +10,16 @@ import java.math.BigDecimal;
 public class OrderDetails {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ORDER_ID", nullable = false)
     private Order order;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "PRODUCT_ID", nullable = false)
     private Product product;
 
     @NotNull
@@ -26,6 +29,9 @@ public class OrderDetails {
     private BigDecimal price;
 
     @NotNull
+    @Column(name = "product_amount")
     private BigDecimal productAmount;
 
+    public OrderDetails() {
+    }
 }
