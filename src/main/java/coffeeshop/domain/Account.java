@@ -2,6 +2,7 @@ package coffeeshop.domain;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 /**
  * Created by bci on 12/9/18 at 10:23 AM
@@ -19,6 +20,7 @@ public class Account {
     private Long id;
 
     @NotNull
+    @Column(name="user_name")
     private String userName;
 
     @NotNull
@@ -30,6 +32,10 @@ public class Account {
     @NotNull
     private String role;
 
+    @OneToMany(mappedBy = "account")
+    private List<Order> orders;
+
+
     public Account(@NotNull String userName, String email, @NotNull String role) {
         this.userName = userName;
         this.email = email;
@@ -39,6 +45,13 @@ public class Account {
     public Account() {
     }
 
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
+    }
 
     public Long getId() {
         return id;
@@ -83,6 +96,7 @@ public class Account {
     @Override
     public String toString() {
         return "Accounts{" +
+                " id=" + id +'\'' +
                 ", userName='" + userName + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +

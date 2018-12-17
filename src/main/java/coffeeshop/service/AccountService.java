@@ -5,6 +5,9 @@ import coffeeshop.repository.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by bci on 12/9/18 at 2:05 PM
  */
@@ -21,4 +24,14 @@ public class AccountService {
     public Account getAccountByUserName(String username) {
         return accountRepository.findByUserName(username);
     }
+
+    public List<Account> getAccounts(){
+
+        List<Account> accounts= new ArrayList<>();
+        accountRepository.findAll().forEach(accounts::add);
+
+        return  accounts;
+    }
+
+
 }

@@ -3,12 +3,14 @@ package coffeeshop.controller;
 import coffeeshop.domain.Account;
 import coffeeshop.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by bci on 12/9/18 at 2:04 PM
  */
-@RestController
+@Controller
 @RequestMapping("/accounts")
 public class AccountController{
 
@@ -27,13 +29,21 @@ public class AccountController{
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }*/
 
-    @RequestMapping(method = RequestMethod.GET, produces = "application/json", path = "/{username}")
-    private Account getAccountByUserName(@PathVariable("username") String username) {
-        return accountService.getAccountByUserName(username);
+//    @RequestMapping(method = RequestMethod.GET, produces = "application/json", path = "/{username}")
+//    public Account getAccountByUserName(@PathVariable("username") String username) {
+//        return accountService.getAccountByUserName(username);
+//    }
+
+    @RequestMapping(method = RequestMethod.GET)
+    public String getAccount(Model model) {
+
+        model.addAttribute("accounts",accountService.getAccounts());
+
+        return "accounts";
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    private Long saveAccount(@RequestBody Account account) {
+    public Long saveAccount(@RequestBody Account account) {
         accountService.saveOrUpdate(account);
         return account.getId();
     }

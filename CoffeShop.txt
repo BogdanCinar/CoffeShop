@@ -8,7 +8,7 @@ Coffe Shop
 USER STORIES:
 
 1.  as Admin I want to add/delete a user to users table so that I will have an overview of my employees
-    - TASK 1: design DataBase accordingly with business object
+    - TASK 1: design DataBase accordingly with business object.GE
     - TASK 2: create domain classes (user)
     - TASK 3: create Controller class
     - TASK 4: create Service class
