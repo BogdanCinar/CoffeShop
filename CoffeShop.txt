@@ -1,9 +1,9 @@
-Coffe Shop
+Coffee Shop
 
-- mysql - users - id, name, password, user_role
+- mysql - users - id, username, password, user_role, email
         - products - id, code, image, name, price, description, creation_date
         - orders - id, amount, id_user, creation_date,
-        - order_details - id_order, id_produs, qty, price, product_amount
+        - order_details - id_order, id_product, qty, price, product_amount
 
 USER STORIES:
 
